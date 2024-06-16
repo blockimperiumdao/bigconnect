@@ -1,0 +1,209 @@
+[gd_scene load_steps=10 format=3 uid="uid://j67v0duffmwm"]
+
+[ext_resource type="Script" path="res://ui/connect/Connect.cs" id="1_dgc11"]
+[ext_resource type="Texture2D" uid="uid://odcuaxj32brs" path="res://ui/images/c2c7805f-5d76-4074-937e-d582db04d52f.webp" id="1_guavx"]
+[ext_resource type="Texture2D" uid="uid://c4kearwef2aew" path="res://ui/images/white_logo_transparent_background.png" id="2_b7gs5"]
+[ext_resource type="Texture2D" uid="uid://by4o7kt06357v" path="res://ui/images/blue_panel.png" id="2_xpsba"]
+[ext_resource type="Script" path="res://addons/godotblockchain/BlockchainContractNode.cs" id="5_4hl7s"]
+[ext_resource type="Script" path="res://addons/godotblockchain/BlockchainClientNode.cs" id="6_ox2e0"]
+[ext_resource type="Resource" uid="uid://bmec273xstfu3" path="res://config/big_thirdweb_config.tres" id="7_x7dat"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynh8i"]
+bg_color = Color(0.490196, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8bod"]
+bg_color = Color(0.490196, 0, 0, 1)
+
+[node name="ConnectUI" type="Node2D" node_paths=PackedStringArray("actionButton", "instructionsLabel")]
+script = ExtResource("1_dgc11")
+actionButton = NodePath("CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ActionButton")
+instructionsLabel = NodePath("CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/Instructions")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 230.0
+offset_top = 80.0
+offset_right = 1664.0
+offset_bottom = 936.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_guavx")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="SignInPanel" type="NinePatchRect" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_xpsba")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 64)
+layout_mode = 2
+texture = ExtResource("2_b7gs5")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="SignInLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Sign In"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 300)
+layout_mode = 2
+
+[node name="Instructions" type="RichTextLabel" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 34
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 34
+text = "Instructions"
+
+[node name="UsernameEntry" type="LineEdit" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Username"
+
+[node name="PasswordEntry" type="LineEdit" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+placeholder_text = "Enter One Time Password"
+secret = true
+
+[node name="ActionButton" type="Button" parent="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ynh8i")
+text = "CONNECT"
+
+[node name="SignupPanel" type="NinePatchRect" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_xpsba")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 64)
+layout_mode = 2
+texture = ExtResource("2_b7gs5")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="SignUpLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Create Account"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="EmailEntry" type="LineEdit" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+placeholder_text = "Email Address"
+alignment = 1
+caret_blink = true
+
+[node name="UsernameEntry" type="LineEdit" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+placeholder_text = "Username"
+alignment = 1
+caret_blink = true
+
+[node name="PasswordEntry" type="LineEdit" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+placeholder_text = "Password"
+alignment = 1
+caret_blink = true
+secret = true
+
+[node name="CreateAccountButton" type="Button" parent="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8bod")
+text = "CREATE"
+
+[node name="BlockchainManager" type="Node" parent="."]
+script = ExtResource("5_4hl7s")
+
+[node name="BlockchainClient" type="Node" parent="BlockchainManager" node_paths=PackedStringArray("emailEntry", "otpEntry")]
+script = ExtResource("6_ox2e0")
+clientConfiguration = ExtResource("7_x7dat")
+emailEntry = NodePath("../../CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/UsernameEntry")
+otpEntry = NodePath("../../CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PasswordEntry")
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/HBoxContainer/SignInPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ActionButton" to="." method="OnConnectButtonPressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/HBoxContainer/SignupPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/CreateAccountButton" to="." method="_on_create_account_button_pressed"]
