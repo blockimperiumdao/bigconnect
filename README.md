@@ -1,7 +1,8 @@
 ## Overview
 
-This plugin is a simple login interface that sits atop the Godot Blockchain Plugin as well
-as implements social login for a game. The UI is totally customizable and arbitrary
+This plugin provides a login interface that sits atop the GodotBlockchain Plugin as well
+as implements social login for a game. The UI is totally customizable and arbitrary. 
+Just mind the signals and you can change whatever you want.
 
 ## Features
 
@@ -10,14 +11,14 @@ as implements social login for a game. The UI is totally customizable and arbitr
 
 Ensure that you have the .NET SDK installed. Version 7.0 or later is recommended for this project.
 
-Ensure you have the godotblockchain addon (requires .NET for the plugin, but not for the game).
+Ensure you have the godotblockchain addon (requires .NET for the plugin, but you do not need to write scripts in C#).
 
 Add the following to the PackageReference inside the ItemGroup in your csproj file. If there is no ItemGroup, drop this block as a child of the Project tag:
 
 ```
 <ItemGroup>
   <!-- Other NuGet package references -->
-  <PackageReference Include="Thirdweb" Version="0.4.0" />
+  <PackageReference Include="Thirdweb" Version="1.0.0" />
   <!-- Update with the latest version when necessary -->
 </ItemGroup>
 ```
