@@ -12,6 +12,9 @@ public partial class Connect : Node2D
 	[Export]
 	private RichTextLabel instructionsLabel;
 	
+	[Export]
+	private PackedScene successScene;
+	
 	[Signal]
 	public delegate void LoginSuccessfulEventHandler( string smartWalletAddress );
 	
@@ -25,7 +28,9 @@ public partial class Connect : Node2D
 		instructionsLabel.Text = "Enter your email address. \nAn account and wallet will be created for you.";
 	
 		BlockchainClientNode.Instance.AwaitingOTP += SetStateAwaitingOTP;
-		BlockchainClientNode.Instance.SmartWalletCreated += SmartWalletCreated;	
+		BlockchainClientNode.Instance.SmartWalletCreated += SmartWalletCreated;
+		
+		LoginSuccessful += OnLoginSuccessful;	
 	}	
 	
 	private void SetStateAwaitingOTP()
@@ -41,7 +46,7 @@ public partial class Connect : Node2D
 		instructionsLabel.Text = "Connected to wallet " + address;	
 		actionButton.Visible = false;
 		
-		EmitSignal(SignalName.LoginSuccessful);
+		EmitSignal(SignalName.LoginSuccessful, address );
 	}
 	
 	private void OnConnectButtonPressed()
@@ -59,6 +64,16 @@ public partial class Connect : Node2D
 	private void OnOTPSubmitPressed()
 	{
 		BlockchainManager.Instance.EmitLog("Submitting OTP");
+	}
+	
+	private void OnLoginSuccessful( string smartWalletAddress )
+	{	
+		GD.Print("Login success");
+		if (successScene != null)
+		{
+			GetTree().ChangeSceneToPacked(successScene);			
+		}
+	
 	}
 	
 	
