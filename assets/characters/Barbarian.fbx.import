@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ckej58o84aqsw"
-path="res://.godot/imported/lamp_standing.fbx-116e2d6973678ac1f948976a5d450da9.scn"
+uid="uid://dc0nvq1hh2nwg"
+path="res://.godot/imported/Barbarian.fbx-81ad7bb1d22726f4cdeb51ee32763208.scn"
 
 [deps]
 
-source_file="res://characters/lamp_standing.fbx"
-dest_files=["res://.godot/imported/lamp_standing.fbx-116e2d6973678ac1f948976a5d450da9.scn"]
+source_file="res://assets/characters/Barbarian.fbx"
+dest_files=["res://.godot/imported/Barbarian.fbx-81ad7bb1d22726f4cdeb51ee32763208.scn"]
 
 [params]
 

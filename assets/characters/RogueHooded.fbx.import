@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cec2moihn4noq"
-path="res://.godot/imported/characterMedium.fbx-2c292aa2cab70f32be9dbc1d279b0c5f.scn"
+uid="uid://cj6pr415mq5sg"
+path="res://.godot/imported/RogueHooded.fbx-91f3509ae8e0b499065e4724e433540e.scn"
 
 [deps]
 
-source_file="res://barn/characterMedium.fbx"
-dest_files=["res://.godot/imported/characterMedium.fbx-2c292aa2cab70f32be9dbc1d279b0c5f.scn"]
+source_file="res://assets/characters/RogueHooded.fbx"
+dest_files=["res://.godot/imported/RogueHooded.fbx-91f3509ae8e0b499065e4724e433540e.scn"]
 
 [params]
 

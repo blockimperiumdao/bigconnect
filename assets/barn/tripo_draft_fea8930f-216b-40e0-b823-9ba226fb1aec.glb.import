@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cj6pr415mq5sg"
-path="res://.godot/imported/RogueHooded.fbx-88849e9d62fa8466544ad472bb1ba590.scn"
+uid="uid://b1yspqlao3lyj"
+path="res://.godot/imported/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec.glb-89d13525804a9d13482b5d944bcb0614.scn"
 
 [deps]
 
-source_file="res://characters/RogueHooded.fbx"
-dest_files=["res://.godot/imported/RogueHooded.fbx-88849e9d62fa8466544ad472bb1ba590.scn"]
+source_file="res://assets/barn/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec.glb"
+dest_files=["res://.godot/imported/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec.glb-89d13525804a9d13482b5d944bcb0614.scn"]
 
 [params]
 
@@ -27,7 +27,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""

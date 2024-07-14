@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://f8kkvt6kecxr"
-path="res://.godot/imported/shelf_B_small_decorated.fbx-208cd6a1fce46c37a37453bfb7340e07.scn"
+uid="uid://dfsnehstph3mu"
+path="res://.godot/imported/Rogue.fbx-7e687d8abf777e17f07f8d74796b225b.scn"
 
 [deps]
 
-source_file="res://characters/shelf_B_small_decorated.fbx"
-dest_files=["res://.godot/imported/shelf_B_small_decorated.fbx-208cd6a1fce46c37a37453bfb7340e07.scn"]
+source_file="res://assets/characters/Rogue.fbx"
+dest_files=["res://.godot/imported/Rogue.fbx-7e687d8abf777e17f07f8d74796b225b.scn"]
 
 [params]
 

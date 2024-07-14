@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwjk3lpftcdid"
-path.s3tc="res://.godot/imported/furniturebits_texture.png-b3c6f6d8e393d5f01b789f62de0775c9.s3tc.ctex"
+uid="uid://l54kqqixvum"
+path.s3tc="res://.godot/imported/rogue_texture.png-433706774ad75292d40cd2941ac47cd8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://characters/furniturebits_texture.png"
-dest_files=["res://.godot/imported/furniturebits_texture.png-b3c6f6d8e393d5f01b789f62de0775c9.s3tc.ctex"]
+source_file="res://assets/characters/rogue_texture.png"
+dest_files=["res://.godot/imported/rogue_texture.png-433706774ad75292d40cd2941ac47cd8.s3tc.ctex"]
 
 [params]
 

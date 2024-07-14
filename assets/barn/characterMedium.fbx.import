@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dj68x3qvht27n"
-path="res://.godot/imported/Mage.fbx-bcdaecd126f2c3fec1ae8f15917876dc.scn"
+uid="uid://cec2moihn4noq"
+path="res://.godot/imported/characterMedium.fbx-07f17663fe8f8a184b0ea5f20793ade4.scn"
 
 [deps]
 
-source_file="res://characters/Mage.fbx"
-dest_files=["res://.godot/imported/Mage.fbx-bcdaecd126f2c3fec1ae8f15917876dc.scn"]
+source_file="res://assets/barn/characterMedium.fbx"
+dest_files=["res://.godot/imported/characterMedium.fbx-07f17663fe8f8a184b0ea5f20793ade4.scn"]
 
 [params]
 

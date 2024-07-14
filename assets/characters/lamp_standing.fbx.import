@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dfsnehstph3mu"
-path="res://.godot/imported/Rogue.fbx-4e0a1793bcf750ab83c008c3ae6252e9.scn"
+uid="uid://ckej58o84aqsw"
+path="res://.godot/imported/lamp_standing.fbx-08b4c86d104724b209eaf670a744a675.scn"
 
 [deps]
 
-source_file="res://characters/Rogue.fbx"
-dest_files=["res://.godot/imported/Rogue.fbx-4e0a1793bcf750ab83c008c3ae6252e9.scn"]
+source_file="res://assets/characters/lamp_standing.fbx"
+dest_files=["res://.godot/imported/lamp_standing.fbx-08b4c86d104724b209eaf670a744a675.scn"]
 
 [params]
 

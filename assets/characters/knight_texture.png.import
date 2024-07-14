@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpd36ofv3gefv"
-path.s3tc="res://.godot/imported/barbarian_texture.png-08101b41491ece78feb4bd265212bb9b.s3tc.ctex"
+uid="uid://c11s07ojaht2o"
+path.s3tc="res://.godot/imported/knight_texture.png-f64bb9ba4906611cfabd5a4c404478ff.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://characters/barbarian_texture.png"
-dest_files=["res://.godot/imported/barbarian_texture.png-08101b41491ece78feb4bd265212bb9b.s3tc.ctex"]
+source_file="res://assets/characters/knight_texture.png"
+dest_files=["res://.godot/imported/knight_texture.png-f64bb9ba4906611cfabd5a4c404478ff.s3tc.ctex"]
 
 [params]
 

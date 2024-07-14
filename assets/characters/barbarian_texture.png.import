@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drqlu4fa1x3yw"
-path.s3tc="res://.godot/imported/mage_texture.png-7183561980f2eae5fd4cc6ddaa0e3558.s3tc.ctex"
+uid="uid://cpd36ofv3gefv"
+path.s3tc="res://.godot/imported/barbarian_texture.png-680a9a0a5088733cfead80aeb62cd103.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://characters/mage_texture.png"
-dest_files=["res://.godot/imported/mage_texture.png-7183561980f2eae5fd4cc6ddaa0e3558.s3tc.ctex"]
+source_file="res://assets/characters/barbarian_texture.png"
+dest_files=["res://.godot/imported/barbarian_texture.png-680a9a0a5088733cfead80aeb62cd103.s3tc.ctex"]
 
 [params]
 

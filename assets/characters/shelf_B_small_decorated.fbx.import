@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bdj3nihcv2bmh"
-path="res://.godot/imported/SM_Bld_Barn_01.glb-7d8b29234749b3e3c23f3708d235c79f.scn"
+uid="uid://f8kkvt6kecxr"
+path="res://.godot/imported/shelf_B_small_decorated.fbx-4fdec594c1e3dc91de9f289b6c78b75d.scn"
 
 [deps]
 
-source_file="res://barn/SM_Bld_Barn_01.glb"
-dest_files=["res://.godot/imported/SM_Bld_Barn_01.glb-7d8b29234749b3e3c23f3708d235c79f.scn"]
+source_file="res://assets/characters/shelf_B_small_decorated.fbx"
+dest_files=["res://.godot/imported/shelf_B_small_decorated.fbx-4fdec594c1e3dc91de9f289b6c78b75d.scn"]
 
 [params]
 
@@ -27,12 +27,12 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=1
+fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
 gltf/naming_version=1

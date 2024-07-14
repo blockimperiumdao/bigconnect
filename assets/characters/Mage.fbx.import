@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dli6wcsdjudoj"
-path="res://.godot/imported/rug_oval_A.fbx-271f059b01fdd4e27e43ff09e36259b4.scn"
+uid="uid://dj68x3qvht27n"
+path="res://.godot/imported/Mage.fbx-e8d224522517078a4fd6b8aa36442cac.scn"
 
 [deps]
 
-source_file="res://characters/rug_oval_A.fbx"
-dest_files=["res://.godot/imported/rug_oval_A.fbx-271f059b01fdd4e27e43ff09e36259b4.scn"]
+source_file="res://assets/characters/Mage.fbx"
+dest_files=["res://.godot/imported/Mage.fbx-e8d224522517078a4fd6b8aa36442cac.scn"]
 
 [params]
 

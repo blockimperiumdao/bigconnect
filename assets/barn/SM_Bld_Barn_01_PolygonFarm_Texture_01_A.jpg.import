@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5vgtuqweih4e"
-path.s3tc="res://.godot/imported/SM_Bld_Barn_01_PolygonFarm_Texture_01_A.jpg-9a2029edc19ba4b30f3a5bbc2afe884d.s3tc.ctex"
+path.s3tc="res://.godot/imported/SM_Bld_Barn_01_PolygonFarm_Texture_01_A.jpg-8ee7fb7ac6b7398da7e730106b94bdbc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://barn/SM_Bld_Barn_01_PolygonFarm_Texture_01_A.jpg"
-dest_files=["res://.godot/imported/SM_Bld_Barn_01_PolygonFarm_Texture_01_A.jpg-9a2029edc19ba4b30f3a5bbc2afe884d.s3tc.ctex"]
+source_file="res://assets/barn/SM_Bld_Barn_01_PolygonFarm_Texture_01_A.jpg"
+dest_files=["res://.godot/imported/SM_Bld_Barn_01_PolygonFarm_Texture_01_A.jpg-8ee7fb7ac6b7398da7e730106b94bdbc.s3tc.ctex"]
 
 [params]
 
