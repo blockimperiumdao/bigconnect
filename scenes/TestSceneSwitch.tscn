@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmflcs6q51vh8"]
+
+[ext_resource type="Script" path="res://scenes/TestSceneSwitchScript.cs" id="1_6nafd"]
+[ext_resource type="PackedScene" uid="uid://bdj3nihcv2bmh" path="res://barn/SM_Bld_Barn_01.glb" id="2_2axye"]
+[ext_resource type="Texture2D" uid="uid://c2fkqkf0ndvvs" path="res://barn/tileable-grass_clover_tt7010116-dark.png" id="3_8j4nw"]
+[ext_resource type="PackedScene" uid="uid://cec2moihn4noq" path="res://barn/characterMedium.fbx" id="4_1037f"]
+[ext_resource type="PackedScene" uid="uid://b1yspqlao3lyj" path="res://barn/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec.glb" id="5_fpvsv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xndj"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_t3uui"]
+sky_material = SubResource("ProceduralSkyMaterial_1xndj")
+
+[sub_resource type="Environment" id="Environment_wyjsk"]
+background_mode = 2
+sky = SubResource("Sky_t3uui")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ew2es"]
+albedo_texture = ExtResource("3_8j4nw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gj0x4"]
+material = SubResource("StandardMaterial3D_ew2es")
+
+[node name="TestSceneSwitch" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wyjsk")
+
+[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("addressLabel")]
+script = ExtResource("1_6nafd")
+addressLabel = NodePath("ChainAddress")
+
+[node name="SM_Bld_Barn_012" parent="Node3D" instance=ExtResource("2_2axye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.412829, 0.0760049, -11.9343)
+
+[node name="ChainAddress" type="Label" parent="Node3D"]
+offset_left = 28.0
+offset_top = 16.0
+offset_right = 579.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 32
+text = "Waiting for address..."
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(0.772149, -0.0926399, 0.628652, 0, 0.989316, 0.145788, -0.635442, -0.11257, 0.763899, 16.892, 3.02339, -6.57426)
+
+[node name="Ground" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("PlaneMesh_gj0x4")
+
+[node name="characterMedium" parent="Node3D" instance=ExtResource("4_1037f")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.388, 0, -12.3538)
+
+[node name="tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec" parent="." instance=ExtResource("5_fpvsv")]
+transform = Transform3D(2.29015, 0, -4.44469, 0, 5, 0, 4.44469, 0, 2.29015, 15.0067, 1.70909, -12.4699)
