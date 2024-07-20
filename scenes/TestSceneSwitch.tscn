@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmflcs6q51vh8"]
+[gd_scene load_steps=13 format=3 uid="uid://dmflcs6q51vh8"]
 
 [ext_resource type="Script" path="res://scenes/TestSceneSwitchScript.cs" id="1_6nafd"]
 [ext_resource type="PackedScene" uid="uid://bdj3nihcv2bmh" path="res://assets/barn/SM_Bld_Barn_01.glb" id="2_2axye"]
 [ext_resource type="Texture2D" uid="uid://c2fkqkf0ndvvs" path="res://assets/barn/tileable-grass_clover_tt7010116-dark.png" id="3_8j4nw"]
 [ext_resource type="PackedScene" uid="uid://cec2moihn4noq" path="res://assets/barn/characterMedium.fbx" id="4_1037f"]
 [ext_resource type="PackedScene" uid="uid://b1yspqlao3lyj" path="res://assets/barn/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec.glb" id="5_fpvsv"]
+[ext_resource type="Script" path="res://addons/godotblockchain/ERC20BlockchainContractNode.cs" id="6_vimfq"]
+[ext_resource type="Resource" uid="uid://chrsrdyjd6mm0" path="res://config/base_sepolia_erc20_paper.tres" id="7_mi1uy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xndj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,9 +32,12 @@ material = SubResource("StandardMaterial3D_ew2es")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wyjsk")
 
-[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("addressLabel")]
+[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("addressLabel", "tokenSymbol", "tokenBalance", "currencyContract")]
 script = ExtResource("1_6nafd")
 addressLabel = NodePath("ChainAddress")
+tokenSymbol = NodePath("HBoxContainer/Token Symbol")
+tokenBalance = NodePath("HBoxContainer/Token Balance")
+currencyContract = NodePath("../ERC20BlockchainContractNode")
 
 [node name="SM_Bld_Barn_012" parent="Node3D" instance=ExtResource("2_2axye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.412829, 0.0760049, -11.9343)
@@ -55,5 +60,28 @@ mesh = SubResource("PlaneMesh_gj0x4")
 [node name="characterMedium" parent="Node3D" instance=ExtResource("4_1037f")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.388, 0, -12.3538)
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Node3D"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -106.0
+offset_bottom = 40.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="Token Symbol" type="Label" parent="Node3D/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SYMBOL"
+
+[node name="Token Balance" type="Label" parent="Node3D/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "5555"
+
 [node name="tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec" parent="." instance=ExtResource("5_fpvsv")]
 transform = Transform3D(2.29015, 0, -4.44469, 0, 5, 0, 4.44469, 0, 2.29015, 15.0067, 1.70909, -12.4699)
+
+[node name="ERC20BlockchainContractNode" type="Node" parent="."]
+script = ExtResource("6_vimfq")
+contractResource = ExtResource("7_mi1uy")
