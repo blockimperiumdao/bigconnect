@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://btygsaj76ahke"
 path.s3tc="res://.godot/imported/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec_tripo_image_fea8930f-216b-40e0-b823-9ba226fb1aec.jpg-6f341863e14ce7ff68adb862cfb5cd05.s3tc.ctex"
+path.etc2="res://.godot/imported/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec_tripo_image_fea8930f-216b-40e0-b823-9ba226fb1aec.jpg-6f341863e14ce7ff68adb862cfb5cd05.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/barn/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec_tripo_image_fea8930f-216b-40e0-b823-9ba226fb1aec.jpg"
-dest_files=["res://.godot/imported/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec_tripo_image_fea8930f-216b-40e0-b823-9ba226fb1aec.jpg-6f341863e14ce7ff68adb862cfb5cd05.s3tc.ctex"]
+dest_files=["res://.godot/imported/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec_tripo_image_fea8930f-216b-40e0-b823-9ba226fb1aec.jpg-6f341863e14ce7ff68adb862cfb5cd05.s3tc.ctex", "res://.godot/imported/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec_tripo_image_fea8930f-216b-40e0-b823-9ba226fb1aec.jpg-6f341863e14ce7ff68adb862cfb5cd05.etc2.ctex"]
 
 [params]
 

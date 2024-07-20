@@ -28,22 +28,22 @@ public partial class Connect : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		BlockchainManager.Instance.EmitLog("Connect Ready");
+		BlockchainLogManager.Instance.EmitLog("Connect Ready");
 
 		actionButton.Text = "CONNECT";
 		instructionsLabel.Text = "Enter your email address. \nAn account and wallet will be created for you.";
 	
 		BlockchainClientNode.Instance.AwaitingOTP += SetStateAwaitingOTP;
-		//BlockchainClientNode.Instance.InAppWalletCreated += SetStateInAppWalletCreated;
-		//BlockchainClientNode.Instance.SmartWalletCreated += SmartWalletCreated;
+		BlockchainClientNode.Instance.InAppWalletCreated += SetStateInAppWalletCreated;
+		BlockchainClientNode.Instance.SmartWalletCreated += SmartWalletCreated;
 
-		//LoginSuccessful += OnLoginSuccessful;	
+		LoginSuccessful += OnLoginSuccessful;	
 	}	
 	
 	private void SetStateAwaitingOTP()
 	{		
 		isAwaitingOTP = true;
-		BlockchainManager.Instance.EmitLog("Awaiting OTP");
+		BlockchainLogManager.Instance.EmitLog("Awaiting OTP");
 
 		
 		actionButton.Text = "SUBMIT OTP";
@@ -56,15 +56,17 @@ public partial class Connect : Node2D
 
 	private void SetStateInAppWalletCreated( string address )
 	{
-		BlockchainManager.Instance.EmitLog("InAppWalletAddress " + address);
+		BlockchainLogManager.Instance.EmitLog("InAppWalletAddress " + address);
 		
 		otpEntry.Visible = false;
 		emailEntry.Visible = false;
+
+		BlockchainClientNode.Instance.CreateSmartWallet();
 	}
 	
 	private void SmartWalletCreated( string address )
 	{
-		BlockchainManager.Instance.EmitLog("SmartWalletCreated " + address);
+		BlockchainLogManager.Instance.EmitLog("SmartWalletCreated " + address);
 
 		instructionsLabel.Text = "Connected to wallet " + address;	
 		actionButton.Visible = false;
@@ -72,7 +74,7 @@ public partial class Connect : Node2D
 		EmitSignal(SignalName.LoginSuccessful, address );
 	}
 	
-	private void OnConnectButtonPressed()
+	private async void OnConnectButtonPressed()
 	{		
 		if (isAwaitingOTP == false)
 		{
@@ -80,7 +82,7 @@ public partial class Connect : Node2D
 		}
 		else
 		{
-			BlockchainClientNode.Instance.OnOTPSubmit( otpEntry.Text );
+			bool success = await BlockchainClientNode.Instance.OnOTPSubmit( otpEntry.Text );
 		}	
 	}
 	

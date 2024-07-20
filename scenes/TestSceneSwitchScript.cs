@@ -23,7 +23,7 @@ public partial class TestSceneSwitchScript : Node3D
 	
 	private void OnLoginCompleted( string address )
 	{
-		BlockchainManager.Instance.EmitLog("SwitchScript address " + address);
+		BlockchainLogManager.Instance.EmitLog("SwitchScript address " + address);
 		
 	}
 
