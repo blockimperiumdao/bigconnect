@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmflcs6q51vh8"]
+[gd_scene load_steps=15 format=3 uid="uid://dmflcs6q51vh8"]
 
 [ext_resource type="Script" path="res://scenes/TestSceneSwitchScript.cs" id="1_6nafd"]
 [ext_resource type="PackedScene" uid="uid://bdj3nihcv2bmh" path="res://assets/barn/SM_Bld_Barn_01.glb" id="2_2axye"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b1yspqlao3lyj" path="res://assets/barn/tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec.glb" id="5_fpvsv"]
 [ext_resource type="Script" path="res://addons/godotblockchain/ERC20BlockchainContractNode.cs" id="6_vimfq"]
 [ext_resource type="Resource" uid="uid://chrsrdyjd6mm0" path="res://config/base_sepolia_erc20_paper.tres" id="7_mi1uy"]
+[ext_resource type="Script" path="res://addons/godotblockchain/ERC721BlockchainContractNode.cs" id="8_l6unr"]
+[ext_resource type="Resource" uid="uid://cdq0h3a3s6jdw" path="res://config/base_sepolia_nft_drop_contract.tres" id="9_sr3v8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xndj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -32,12 +34,13 @@ material = SubResource("StandardMaterial3D_ew2es")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wyjsk")
 
-[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("addressLabel", "tokenSymbol", "tokenBalance", "currencyContract")]
+[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("addressLabel", "tokenSymbol", "tokenBalance", "currencyContractNode", "nftContractNode")]
 script = ExtResource("1_6nafd")
 addressLabel = NodePath("ChainAddress")
 tokenSymbol = NodePath("HBoxContainer/Token Symbol")
 tokenBalance = NodePath("HBoxContainer/Token Balance")
-currencyContract = NodePath("../ERC20BlockchainContractNode")
+currencyContractNode = NodePath("../ERC20BlockchainContractNode")
+nftContractNode = NodePath("../ERC721BlockchainContractNode")
 
 [node name="SM_Bld_Barn_012" parent="Node3D" instance=ExtResource("2_2axye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.412829, 0.0760049, -11.9343)
@@ -85,3 +88,7 @@ transform = Transform3D(2.29015, 0, -4.44469, 0, 5, 0, 4.44469, 0, 2.29015, 15.0
 [node name="ERC20BlockchainContractNode" type="Node" parent="."]
 script = ExtResource("6_vimfq")
 contractResource = ExtResource("7_mi1uy")
+
+[node name="ERC721BlockchainContractNode" type="Node" parent="."]
+script = ExtResource("8_l6unr")
+contractResource = ExtResource("9_sr3v8")

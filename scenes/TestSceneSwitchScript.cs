@@ -1,6 +1,11 @@
 using Godot;
+using NBitcoin;
+using Nethereum.Model;
 using System;
+using System.Diagnostics.Contracts;
 using System.Numerics;
+using Thirdweb;
+using System.IO;
 
 public partial class TestSceneSwitchScript : Node3D
 {
@@ -14,28 +19,72 @@ public partial class TestSceneSwitchScript : Node3D
 	private Label tokenBalance;
 
 	[Export]
-	private ERC20BlockchainContractNode currencyContract;
+	private ERC20BlockchainContractNode currencyContractNode;
+
+	[Export]
+	private ERC721BlockchainContractNode nftContractNode;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		PollAddress();	
 
-		currencyContract.ERC20BlockchainContractInitialized += OnERC20BlockchainContractInitialized;
+		currencyContractNode.ERC20BlockchainContractInitialized += OnERC20BlockchainContractInitialized;
+		nftContractNode.ERC721BlockchainContractInitialized += OnERC721BlockchainContractInitialized;
 	}
 	
 	public async void OnERC20BlockchainContractInitialized()
 	{
 		GD.Print("ERC20BlockchainContractInitialized");
 
-		string symbol = await currencyContract.Symbol();
-		BigInteger balance = await currencyContract.BalanceOf();
-		BigInteger decimals = await currencyContract.Decimals();
+		string symbol = await currencyContractNode.Symbol();
+		BigInteger balance = await currencyContractNode.BalanceOf();
+		BigInteger decimals = await currencyContractNode.Decimals();
 
 		balance = balance / BigInteger.Pow(10, (int)decimals);
 
 		tokenSymbol.Text = symbol;
 		tokenBalance.Text = balance.ToString();
+	}
+
+	public async void OnERC721BlockchainContractInitialized()
+	{
+		GD.Print("ERC721BlockchainContractInitialized");
+
+		string symbol = await nftContractNode.Symbol();
+		BigInteger balance = await nftContractNode.BalanceOf();
+
+		GD.Print("NFT Symbol: " + symbol);
+		GD.Print("NFT Balance: " + balance);
+
+		var nfts = await nftContractNode.contract.ERC721_GetAllNFTs();
+		GD.Print("NFTs received: " + nfts.Count);
+
+		var nft = await nftContractNode.contract.ERC721_GetNFT(1);
+		var nftImageBytes = await nft.GetNFTImageBytes(BlockchainClientNode.Instance.internalClient);
+
+		GD.Print("Bytes received " + nftImageBytes.Length);
+
+		var sprite = await nftContractNode.GetNFTAsSprite2D(1);
+		nftContractNode.AddChild(sprite);
+
+		try
+		{
+			File.WriteAllBytes("/Users/gpierce/Desktop/testnft.png", nftImageBytes);
+		}
+		catch( Exception e )
+		{
+			GD.Print("Exception: " + e.Message);
+		}
+
+
+			//var nftImageBytes = await nfts[0].GetNFTImageBytes(BlockchainClientNode.Instance.internalClient);
+		
+		//GD.Print("Bytes received");
+		
+		// NFTMetadata nftMetadata = nft.Metadata;
+		// GD.Print("ImageURL: " + nftMetadata.Image );
+
 	}
 
 	public async void PollAddress()
