@@ -60,7 +60,7 @@ public partial class TestSceneSwitchScript : Node3D
 		var nfts = await nftContractNode.contract.ERC721_GetAllNFTs();
 		GD.Print("NFTs received: " + nfts.Count);
 
-		var nftId = 2;
+		var nftId = 0;
 		GD.Print("Getting NFT " + nftId);
 		var sprite = await nftContractNode.GetNFTAsSprite2D(nftId);
 		nftContractNode.AddChild(sprite);
