@@ -60,22 +60,19 @@ public partial class TestSceneSwitchScript : Node3D
 		var nfts = await nftContractNode.contract.ERC721_GetAllNFTs();
 		GD.Print("NFTs received: " + nfts.Count);
 
-		var nft = await nftContractNode.contract.ERC721_GetNFT(1);
-		var nftImageBytes = await nft.GetNFTImageBytes(BlockchainClientNode.Instance.internalClient);
-
-		GD.Print("Bytes received " + nftImageBytes.Length);
-
-		var sprite = await nftContractNode.GetNFTAsSprite2D(1);
+		var nftId = 2;
+		GD.Print("Getting NFT " + nftId);
+		var sprite = await nftContractNode.GetNFTAsSprite2D(nftId);
 		nftContractNode.AddChild(sprite);
 
-		try
-		{
-			File.WriteAllBytes("/Users/gpierce/Desktop/testnft.png", nftImageBytes);
-		}
-		catch( Exception e )
-		{
-			GD.Print("Exception: " + e.Message);
-		}
+		// try
+		// {
+		// 	File.WriteAllBytes("/Users/gpierce/Desktop/testnft.png", nftImageBytes);
+		// }
+		// catch( Exception e )
+		// {
+		// 	GD.Print("Exception: " + e.Message);
+		// }
 
 
 			//var nftImageBytes = await nfts[0].GetNFTImageBytes(BlockchainClientNode.Instance.internalClient);
