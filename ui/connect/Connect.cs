@@ -1,5 +1,8 @@
 using Godot;
-using System;
+using BIGConnect.addons.godotblockchain;
+using BIGConnect.scripts;
+
+namespace BIGConnect.ui.connect;
 
 public partial class Connect : Node2D
 {	
@@ -36,7 +39,10 @@ public partial class Connect : Node2D
 		BlockchainClientNode.Instance.AwaitingOTP += SetStateAwaitingOTP;
 		BlockchainClientNode.Instance.InAppWalletCreated += SetStateInAppWalletCreated;
 		BlockchainClientNode.Instance.SmartWalletCreated += SmartWalletCreated;
-
+		
+		Globals.BlockchainClientNode = BlockchainClientNode.Instance;
+		Globals.BlockchainLogManager = BlockchainLogManager.Instance;
+			
 		LoginSuccessful += OnLoginSuccessful;	
 	}	
 	
@@ -45,13 +51,11 @@ public partial class Connect : Node2D
 		isAwaitingOTP = true;
 		BlockchainLogManager.Instance.EmitLog("Awaiting OTP");
 
-		
 		actionButton.Text = "SUBMIT OTP";
 		instructionsLabel.Text = "A One Time Password (OTP) has been sent to this email address. Enter it here.";
 
 		otpEntry.Visible = true;
 		emailEntry.Visible = false;
-
 	}
 
 	private void SetStateInAppWalletCreated( string address )

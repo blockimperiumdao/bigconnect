@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmflcs6q51vh8"]
+[gd_scene load_steps=17 format=3 uid="uid://dmflcs6q51vh8"]
 
 [ext_resource type="Script" path="res://scenes/TestSceneSwitchScript.cs" id="1_6nafd"]
 [ext_resource type="PackedScene" uid="uid://bdj3nihcv2bmh" path="res://assets/barn/SM_Bld_Barn_01.glb" id="2_2axye"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://chrsrdyjd6mm0" path="res://config/base_sepolia_erc20_paper.tres" id="7_mi1uy"]
 [ext_resource type="Script" path="res://addons/godotblockchain/ERC721BlockchainContractNode.cs" id="8_l6unr"]
 [ext_resource type="Resource" uid="uid://cdq0h3a3s6jdw" path="res://config/base_sepolia_nft_drop_contract.tres" id="9_sr3v8"]
+[ext_resource type="Resource" uid="uid://be6upjub0rv34" path="res://config/base_sepolia_erc20drop_rick.tres" id="10_diifs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xndj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -29,18 +30,24 @@ albedo_texture = ExtResource("3_8j4nw")
 [sub_resource type="PlaneMesh" id="PlaneMesh_gj0x4"]
 material = SubResource("StandardMaterial3D_ew2es")
 
+[sub_resource type="BoxMesh" id="BoxMesh_joa1v"]
+
 [node name="TestSceneSwitch" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wyjsk")
 
-[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("addressLabel", "tokenSymbol", "tokenBalance", "currencyContractNode", "nftContractNode")]
+[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("addressLabel", "tokenSymbol", "tokenBalance", "tokenDropSymbol", "tokenDropBalance", "currencyContractNode", "currencyDropContractNode", "nftContractNode", "meshInstance")]
 script = ExtResource("1_6nafd")
 addressLabel = NodePath("ChainAddress")
 tokenSymbol = NodePath("HBoxContainer/Token Symbol")
 tokenBalance = NodePath("HBoxContainer/Token Balance")
-currencyContractNode = NodePath("../ERC20BlockchainContractNode")
+tokenDropSymbol = NodePath("HBoxContainer2/Drop Token Symbol")
+tokenDropBalance = NodePath("HBoxContainer2/Drop Token Balance")
+currencyContractNode = NodePath("../ERC20PaperContractNode")
+currencyDropContractNode = NodePath("../ERC20RickDropContractNode")
 nftContractNode = NodePath("../ERC721BlockchainContractNode")
+meshInstance = NodePath("MeshInstance3D")
 
 [node name="SM_Bld_Barn_012" parent="Node3D" instance=ExtResource("2_2axye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.412829, 0.0760049, -11.9343)
@@ -82,13 +89,41 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "5555"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="Node3D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.5
+offset_right = 103.5
+offset_bottom = 45.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="Drop Token Symbol" type="Label" parent="Node3D/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "DROP"
+
+[node name="Drop Token Balance" type="Label" parent="Node3D/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "BALANCE"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0407, 2.11754, -9.37494)
+mesh = SubResource("BoxMesh_joa1v")
+
 [node name="tripo_draft_fea8930f-216b-40e0-b823-9ba226fb1aec" parent="." instance=ExtResource("5_fpvsv")]
 transform = Transform3D(2.29015, 0, -4.44469, 0, 5, 0, 4.44469, 0, 2.29015, 15.0067, 1.70909, -12.4699)
 
-[node name="ERC20BlockchainContractNode" type="Node" parent="."]
+[node name="ERC20PaperContractNode" type="Node" parent="." groups=["Blockchain"]]
 script = ExtResource("6_vimfq")
-contractResource = ExtResource("7_mi1uy")
+ContractResource = ExtResource("7_mi1uy")
 
-[node name="ERC721BlockchainContractNode" type="Node" parent="."]
+[node name="ERC721BlockchainContractNode" type="Node" parent="." groups=["Blockchain"]]
 script = ExtResource("8_l6unr")
-contractResource = ExtResource("9_sr3v8")
+ContractResource = ExtResource("9_sr3v8")
+
+[node name="ERC20RickDropContractNode" type="Node" parent="."]
+script = ExtResource("6_vimfq")
+ContractResource = ExtResource("10_diifs")
